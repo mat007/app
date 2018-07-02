@@ -359,6 +359,12 @@
   version = "1.1.4"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/mat007/brique"
+  packages = ["."]
+  revision = "2f5829f38f0a6cf963d3b78e1dbbaebb3de5ec5a"
+
+[[projects]]
   name = "github.com/mattn/go-shellwords"
   packages = ["."]
   revision = "02e3cf038dcea8290e44424da473dd12be796a8a"

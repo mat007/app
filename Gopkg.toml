@@ -88,6 +88,10 @@ required = ["github.com/wadey/gocovmerge"]
   name = "github.com/wadey/gocovmerge"
   branch = "master"
 
+[[constraint]]
+  name = "github.com/mat007/brique"
+  branch = "master"
+
 [prune]
   non-go = true
   unused-packages = true

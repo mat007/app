@@ -19,8 +19,8 @@ pipeline {
                     steps {
                         dir('src/github.com/docker/app') {
                             checkout scm
-                            sh 'make -f docker.Makefile lint'
-                            sh 'make -f docker.Makefile vendor'
+                            sh './build.sh lint vendor'
+                            sh './hack/check-git-diff vendor'
                         }
                     }
                 }
@@ -33,7 +33,7 @@ pipeline {
                             script {
                                 try {
                                     checkout scm
-                                    sh 'make -f docker.Makefile cross e2e-cross tars'
+                                    sh './build.sh -cross bin e2e tars'
                                     dir('bin') {
                                         stash name: 'binaries'
                                     }
@@ -98,7 +98,7 @@ pipeline {
                             dir("bin") {
                                 unstash "binaries"
                             }
-                            sh 'make -f docker.Makefile gradle-test'
+                            sh './build.sh gradle-test'
                         }
                     }
                     post {
